@@ -1,0 +1,34 @@
+.other-details {
+    max-width: 700px;
+
+    .section {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .button {
+        width: 100%;
+        margin-block: 20px;
+
+        input {
+            outline: none;
+            border: none;
+            padding: 5px;
+            padding-right: 50px;
+            color: #fff;
+            background-color: #000;
+            cursor: pointer;
+            font-size: 24px;
+            text-align: left;
+
+            &:disabled {
+                opacity: 0.3;
+                cursor: default;
+            }
+        }
+    }
+
+    p {
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,23 @@
+.headsail {
+    max-width: 450px;
+
+    .section {
+        flex: 0 0 100%;
+        max-width: 100%;  
+
+        @media screen and (min-width: 1024px) {
+            flex: 0 0 50%;
+            max-width: 50%;        
+        }
+
+        p {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 10px;
+
+            @media screen and (min-width: 1024px) {
+                text-align: right;        
+            }
+        }
+    }
+}

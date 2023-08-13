@@ -1,0 +1,190 @@
+form {
+    flex: 1;
+    padding-top: 60px;
+    margin-bottom: 10px;
+    overflow-y: auto;
+    position: relative;
+
+    .form {
+        display: flex;
+        flex-wrap: wrap;
+
+        .section {
+
+            .input {
+                display: flex;
+                align-items: center;
+                margin-bottom: 5px;
+                width: 100%;
+                position: relative;
+
+                input {
+                    padding: 5px;
+
+                    &[type=text] {
+                        width: 50%;
+                        -moz-appearance: textfield;
+                    }
+
+                    &[type=number] {
+                        width: 65px;
+                        -moz-appearance: textfield;
+                    }
+
+                    &::-webkit-outer-spin-button,
+                    &::-webkit-inner-spin-button {
+                        -webkit-appearance: none;
+                        margin: 0;
+                    }
+
+                    &[type=checkbox] {
+                        width: 20px;
+                        height: 20px;
+                        margin-block: 5px;
+                    }
+
+                    &[type=radio] {
+                        width: 20px;
+                        height: 20px;
+                        margin-right: 10px;
+                    }
+                }
+
+                label {
+                    font-size: 14px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+
+                    &:first-child {
+                        flex: 1;
+                        max-width: calc(50% - 20px);
+                        margin-right: 20px;
+                        text-align: right;
+                    }
+
+                    span {
+                        width: 20px;
+                        height: 20px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border: 1px solid #000;
+                        border-radius: 50%;
+                        margin-left: 10px;
+                        cursor: pointer;
+                    }
+
+                    .react-tooltip {
+                        z-index: 100;
+                        max-width: 200px;
+                        text-align: left;
+
+                        @media screen and (min-width: 576px) {
+                            max-width: 500px;
+                        }
+                    }
+                }
+
+                select {
+                    padding: 5px;
+                    width: 50%;
+                }
+
+                textarea {
+                    resize: none;
+                    padding: 5px;
+                    flex: 1;
+                }
+
+                .error {
+                    position: absolute;
+                    right: -15px;
+                    color: #ee3d3d;
+                    cursor: pointer;
+                    z-index: 20;
+                }
+
+                .react-tooltip {
+                    z-index: 100;
+                }
+            }
+
+            &:not(:last-child) {
+                margin-bottom: 40px;
+            }
+
+            &.small {
+                .input {
+                    flex: 0 0 50%;
+                    max-width: 50%;
+                    min-width: 450px;
+
+                    @media screen and (min-width: 1024px) {
+                        flex: 0 0 100%;
+                        max-width: 100%;
+                        min-width: initial;
+                        justify-content: flex-end;
+                    }
+
+                    label {
+                        min-width: max-content;
+                    }
+                }   
+            }
+
+            &.medium {
+                .input {
+                    flex: 0 0 50%;
+                    max-width: 50%;
+                    min-width: 450px;
+
+                    @media screen and (min-width: 1024px) {
+                        flex: 0 0 100%;
+                        max-width: 100%;
+                    }
+
+                    label {
+                        min-width: max-content;
+                    }
+                }
+            }
+
+            &.large {
+                .input {
+                    flex: 0 0 100%;
+                    max-width: 100%;
+
+                    label:first-child {
+                        max-width: calc(25% - 20px);
+                        min-width: 205px;
+                    }
+
+                    .radio {
+                        display: flex;
+                        flex-wrap: wrap;
+                        align-items: center;
+                        column-gap: 15px;
+                        row-gap: 5px;
+
+                        div {
+                            display: flex;
+                            align-items: center;
+                        }
+                    }
+                }
+            }
+        }
+
+        svg {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            z-index: -1;
+
+            path {
+                opacity: 0.3;
+            }
+        }
+    }
+}
