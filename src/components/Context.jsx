@@ -1,4 +1,4 @@
-import { createContext, useEffect, useRef } from "react";
+import { createContext, useEffect, useRef, useState } from "react";
 import General from "./General"
 import Headsail from "./Headsail"
 import Mainsail from "./Mainsail"
@@ -34,15 +34,33 @@ export const ContextProvider = ({children}) => {
 
     useFormPersist("formData",{ watch, setValue, storage: window.localStorage });
 
+    const [vh, setVh] = useState(()=>window.innerHeight * 0.01);
+
+    useEffect(() => {
+        const setActualVh = () => {
+            setVh(window.innerHeight * 0.01);
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+
+        setActualVh();
+        window.addEventListener('resize', setActualVh);
+
+        return () => {
+            window.removeEventListener('resize', setActualVh);
+        };
+    }, [vh]);
+
     useEffect(() => {
         localStorage.setItem("currentStepIndex", JSON.stringify(currentStepIndex))
     }, [currentStepIndex])
 
     function onSubmit(data) {
+        alert('Your data has been sent successfully');
         console.log(data)
         reset();
         localStorage.removeItem("formData")
         localStorage.removeItem("currentStepIndex")
+        goTo(0);
     }
 
     function onErrors() {
